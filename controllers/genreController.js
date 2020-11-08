@@ -1,4 +1,4 @@
-const { Book, Genre } = require("../models/sequelize");
+const { Genre, Book } = require("../models/sequelize");
 const createError = require("http-errors");
 
 
@@ -6,8 +6,8 @@ const createError = require("http-errors");
 exports.genre_list = async function(req, res, next) {
     try {
         const genre_list = await Genre.findAll();
-        res.render('genre_list', {
-            title: 'Genre_liste',
+        res.render("genre_list", {
+            title: "Genre_liste",
             genre_list
         });
 
