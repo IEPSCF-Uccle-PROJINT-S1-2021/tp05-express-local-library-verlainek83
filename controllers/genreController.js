@@ -5,7 +5,11 @@ const { body, validationResult } = require("express-validator");
 // Display list of all Genre.
 exports.genre_list = async function(req, res, next) {
     try {
-        const genre_list = await Genre.findAll();
+        const genre_list = await Genre.findAll({
+            order: [
+                ["name", "ASC"]
+            ],
+        });
         res.render("genre_list", {
             title: "Genre_liste",
             genre_list
